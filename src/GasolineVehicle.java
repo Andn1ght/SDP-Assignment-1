@@ -6,4 +6,12 @@ public class GasolineVehicle extends Vehicle{
         super(brand, model, year);
         this.fuelLevel = fuelLevel;
     }
+
+    public int getFuelLevel() {
+        return fuelLevel;
+    }
+
+    public void setFuelLevel(int fuelLevel) {
+        this.fuelLevel = fuelLevel;
+    }
 }
