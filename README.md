@@ -21,7 +21,7 @@ This project is a simulation of a gas station where vehicles can refuel using di
 This project implements two design patterns:
 
 - **Singleton Pattern**: The `GasStation` class is designed as a Singleton to ensure that only one instance of the gas station exists throughout the application.
- ```
+ ``` java
   public static GasStation getInstance() {
         if (instance == null) {
             // Create gasoline and diesel refueling columns with their respective strategies
