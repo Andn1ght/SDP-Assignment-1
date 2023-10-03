@@ -33,4 +33,6 @@ public abstract class Vehicle {
     public void setYear(int year) {
         this.year = year;
     }
+
+    public abstract void refuel();
 }
