@@ -14,4 +14,10 @@ public class GasolineVehicle extends Vehicle{
     public void setFuelLevel(int fuelLevel) {
         this.fuelLevel = fuelLevel;
     }
+
+    @Override
+    public void refuel() {
+        // Quantity to refuel the vehicle
+        fuelLevel += 10;
+    }
 }
