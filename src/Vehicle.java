@@ -1,7 +1,7 @@
 public abstract class Vehicle {
-    protected int fuelLevel;
+    private int fuelLevel;
 
-    public Vehicle(int fuelLevel){
+    public Vehicle(int fuelLevel) {
         this.fuelLevel = fuelLevel;
     }
 
@@ -13,5 +13,5 @@ public abstract class Vehicle {
         this.fuelLevel = fuelLevel;
     }
 
-    public abstract void refuel(RefuelingStrategy refuelingStrategy);
+    public abstract void refuel(RefuelingStrategy refuelingStrategy, int amountToRefuel);
 }

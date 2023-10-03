@@ -1,11 +1,10 @@
-public class DieselVehicle extends Vehicle{
-
+public class DieselVehicle extends Vehicle {
     public DieselVehicle(int fuelLevel) {
         super(fuelLevel);
     }
 
     @Override
-    public void refuel(RefuelingStrategy refuelingStrategy) {
-        refuelingStrategy.refuel(this);
+    public void refuel(RefuelingStrategy refuelingStrategy, int amountToRefuel) {
+        refuelingStrategy.refuel(this, amountToRefuel);
     }
 }

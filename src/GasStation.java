@@ -9,20 +9,31 @@ public class GasStation {
         this.dieselColumn = dieselColumn;
     }
 
+    public RefuelingColumn getGasolineColumn() {
+        return gasolineColumn;
+    }
+
+    public RefuelingColumn getDieselColumn() {
+        return dieselColumn;
+    }
+
     public static GasStation getInstance() {
         if (instance == null) {
-            instance = new GasStation(new GasolineColumn(), new DieselColumn());
+            RefuelingColumn gasolineColumn = new GasolineColumn(new GasolineRefuelingStrategy());
+            RefuelingColumn dieselColumn = new DieselColumn(new DieselRefuelingStrategy());
+            instance = new GasStation(gasolineColumn, dieselColumn);
         }
         return instance;
     }
 
-    public void refuel(Vehicle vehicle) {
+    public void refuelVehicle(Vehicle vehicle, RefuelingColumn column, int amountToRefuel) {
         RefuelingStrategy refuelingStrategy = getRefuelingStrategy(vehicle);
         if (refuelingStrategy == null) {
-            throw new IllegalArgumentException("Unknown vehicle type: " + vehicle.getClass().getName());
+            throw new IllegalArgumentException("Unknown vehicle type: " + vehicle.getClass().getSimpleName());
         }
 
-        refuelingStrategy.refuel(vehicle);
+        // Refuel the vehicle using the specified column and amount
+        column.refuel(vehicle, refuelingStrategy, amountToRefuel);
     }
 
     private RefuelingStrategy getRefuelingStrategy(Vehicle vehicle) {
