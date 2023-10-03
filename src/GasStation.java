@@ -15,4 +15,23 @@ public class GasStation {
         }
         return instance;
     }
+
+    public void refuel(Vehicle vehicle) {
+        RefuelingStrategy refuelingStrategy = getRefuelingStrategy(vehicle);
+        if (refuelingStrategy == null) {
+            throw new IllegalArgumentException("Unknown vehicle type: " + vehicle.getClass().getName());
+        }
+
+        refuelingStrategy.refuel(vehicle);
+    }
+
+    private RefuelingStrategy getRefuelingStrategy(Vehicle vehicle) {
+        if (vehicle instanceof GasolineVehicle) {
+            return new GasolineRefuelingStrategy();
+        } else if (vehicle instanceof DieselVehicle) {
+            return new DieselRefuelingStrategy();
+        } else {
+            return null;
+        }
+    }
 }
