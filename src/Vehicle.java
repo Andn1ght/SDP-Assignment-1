@@ -1,38 +1,17 @@
 public abstract class Vehicle {
+    protected int fuelLevel;
 
-    private String brand;
-    private String model;
-    private int year;
-
-    public Vehicle(String brand, String model, int year){
-        this.brand = brand;
-        this.model = model;
-        this.year = year;
+    public Vehicle(int fuelLevel){
+        this.fuelLevel = fuelLevel;
     }
 
-    public String getBrand() {
-        return brand;
+    public int getFuelLevel() {
+        return fuelLevel;
     }
 
-    public void setBrand(String brand) {
-        this.brand = brand;
+    public void setFuelLevel(int fuelLevel) {
+        this.fuelLevel = fuelLevel;
     }
 
-    public String getModel() {
-        return model;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
-    }
-
-    public int getYear() {
-        return year;
-    }
-
-    public void setYear(int year) {
-        this.year = year;
-    }
-
-    public abstract void refuel();
+    public abstract void refuel(RefuelingStrategy refuelingStrategy);
 }
